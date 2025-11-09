@@ -52,7 +52,7 @@ The model performed well in detecting small kidney stones, even with limited dat
 
 ## 🧩 Requirements
 
-pip install -r requirements.txt
+pip install -r Requirements.txt
 
 ---
 
