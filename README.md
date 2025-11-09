@@ -51,10 +51,39 @@ The model performed well in detecting small kidney stones, even with limited dat
 ---
 
 ## 🧩 Requirements
-```bash
+
 pip install -r requirements.txt
 
 ---
 
+## 🧩 Run The Project
+
+python medical_image_segmentation_unet.py
 
 
+## 🧾 Evaluation Metrics
+
+Dice Coefficient: Measures overlap accuracy
+
+IoU (Intersection over Union): Measures prediction correctness
+
+BCE + Dice Loss: Combined loss for small object segmentation
+
+
+## 🌍 Practical Use
+
+Faster and more accurate kidney stone detection
+
+Helps doctors focus on decision-making instead of manual marking
+
+Adaptable for tumors, organs, and other medical segmentation tasks
+
+## 👩‍💻 Author
+
+Bhavika Bavchandbhai Radadiya
+MSc Data Analytics (2025)
+
+## 📄 License
+
+This project is licensed under the MIT License – see the LICENSE
+ file for details.
