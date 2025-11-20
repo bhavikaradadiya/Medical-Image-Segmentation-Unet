@@ -1,41 +1,97 @@
 
-# 🩺 Image Segmentation in Medical Imaging Using Deep Learning (U-Net)
+# 🩺Kidney Stone Segmentation using ResUNet++
+Kidney Stone Segmentation using ResUNet++
 
-This project applies **deep learning (U-Net model)** for **medical image segmentation**, specifically detecting and outlining **kidney stones** in CT or MRI scans.  
-It demonstrates how AI can support doctors in diagnosing diseases faster and more accurately.
+This project performs semantic segmentation of kidney stones from CT scan images using a ResUNet++ deep learning model, trained on the publicly available dataset:
+
+- **Dataset:** Kidney Stone Segmentation Dataset
+
+- **Source:** Kaggle
+
+- **Type:** CT images (.jpg) + segmentation masks (.png)
+
+- **Goal:** Detect very small kidney stones using pixel-wise segmentation.
 
 ---
 
 ## 🚀 Project Overview
-Traditional medical image analysis is time-consuming and depends on expert interpretation.  
-Using **U-Net**, this project automatically separates the kidney stone area from the rest of the image, improving diagnostic efficiency.
+Kidney stones are usually very small in CT images, making segmentation a challenging task.
+This project uses ResUNet++, an advanced architecture that improves:
+
+Residual connections
+
+Attention mechanisms
+
+Multi-scale feature extraction
+
+This makes it effective for detecting tiny regions such as kidney stones.
 
 ---
 
-## 🧠 Model Used: U-Net
-- **Type:** Encoder–Decoder Convolutional Neural Network  
-- **Task:** Pixel-wise segmentation of kidney stones  
-- **Key Components:**
-  - Downsampling (encoder) to capture context  
-  - Upsampling (decoder) to recover spatial details  
-  - Skip connections to preserve fine structures  
+## 🧠 Model Used:Model Used: ResUNet++
+
+ResUNet++ provides:
+
+✔ Deep residual learning
+
+✔ Squeeze-and-Excitation blocks
+
+✔ Attention gates
+
+✔ Better detection of small structures
+
+- **Loss function used:**
+
+Dice Loss (handles class imbalance)
+
+Focal Loss (focuses on tiny kidney stones)
+
+Optimizer: Adam
+Image size: 256 × 256
 
 ---
 
 ## 📊 Dataset
 - **Source:** [Kidney Stone Segmentation Dataset](https://www.kaggle.com/datasets/bemorekgg/kidney-stone-segmentation-dataset)
-- **Data Type:** `.jpg` medical images and corresponding `.png` masks  
-- **Split:** 80% training, 20% testing  
+- **Data Type:** `.jpg` medical images and corresponding `.png` masks, 
+TXT files: YOLO annotations (not used in this project)
+- **Split:** 80% training, 20% testing
 
 ---
 
-## ⚙️ Steps in the Pipeline
-1. **Load Dataset** – Load image-mask pairs from directory.  
-2. **Preprocessing** – Resize, normalize, and convert to tensors.  
-3. **Model Building** – Define U-Net architecture using PyTorch.  
-4. **Training** – Optimize using Binary Cross Entropy + Dice Loss.  
-5. **Evaluation** – Calculate Dice Coefficient and IoU.  
-6. **Visualization** – Display predicted vs. actual segmentation.
+## 🚀 4. How to Run the Project (Google Colab)
+
+- **Step 1: Install Libraries** 
+
+ 
+!pip install segmentation-models-pytorch albumentations opencv-python
+
+- **Step 2: Extract dataset**
+
+Upload kidney-stone.zip and run:
+
+import zipfile
+zip_path = "/content/kidney-stone.zip"
+with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+zip_ref.extractall("/content/")
+
+- **Step 3: Train the model**
+
+Training code includes:
+
+Dataset pairing
+
+Augmentations
+
+Dataloaders
+
+ResUNet++ model
+
+Custom loss functions
+
+Training & validation loops
+
+Full code is included in Medical-image-segmentation.ipynb.
 
 ---
 
