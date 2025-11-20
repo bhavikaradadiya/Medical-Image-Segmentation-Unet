@@ -14,7 +14,7 @@ This project performs semantic segmentation of kidney stones from CT scan images
 
 ---
 
-## 🚀 Project Overview
+## 🚀1. Project Overview
 Kidney stones are usually very small in CT images, making segmentation a challenging task.
 This project uses ResUNet++, an advanced architecture that improves:
 
@@ -28,7 +28,7 @@ This makes it effective for detecting tiny regions such as kidney stones.
 
 ---
 
-## 🧠 Model Used:Model Used: ResUNet++
+## 🧠 2. Model Used:Model Used: ResUNet++
 
 ResUNet++ provides:
 
@@ -51,7 +51,7 @@ Image size: 256 × 256
 
 ---
 
-## 📊 Dataset
+## 📊 3. Dataset
 - **Source:** [Kidney Stone Segmentation Dataset](https://www.kaggle.com/datasets/bemorekgg/kidney-stone-segmentation-dataset)
 - **Data Type:** `.jpg` medical images and corresponding `.png` masks, 
 TXT files: YOLO annotations (not used in this project)
@@ -95,38 +95,16 @@ Full code is included in Medical-image-segmentation.ipynb.
 
 ---
 
-## 📈 Results
-| Metric | Description | Performance |
-|:-------:|:-------------|:-------------|
-| **Dice Score** | Overlap between predicted and true masks | High |
-| **IoU** | Intersection over Union | High |
-| **Loss** | BCE + Dice | ~0.56 |
+## 📈 5. Results
 
-The model performed well in detecting small kidney stones, even with limited data.
+Example output:
 
----
-
-## 🧩 Requirements
-
-pip install -r Requirements.txt
-
----
-
-## 🧩 Run The Project
-
-python medical_image_segmentation_unet.py
+<img width="1342" height="457" alt="Screenshot 2025-11-21 010156" src="https://github.com/user-attachments/assets/519fa1f3-5e4c-4602-add6-ca80e0e7869e" />
 
 
-## 🧾 Evaluation Metrics
+The model successfully detects kidney stones even when the target area is extremely small.
 
-Dice Coefficient: Measures overlap accuracy
-
-IoU (Intersection over Union): Measures prediction correctness
-
-BCE + Dice Loss: Combined loss for small object segmentation
-
-
-## 🌍 Practical Use
+## 🌍 6. Practical Use
 
 Faster and more accurate kidney stone detection
 
@@ -134,12 +112,31 @@ Helps doctors focus on decision-making instead of manual marking
 
 Adaptable for tumors, organs, and other medical segmentation tasks
 
-## 👩‍💻 Author
 
+## 🔍 7. Challenges
+
+Kidney stones occupy very few pixels in the image.
+
+Dataset masks were generated using YOLO + SAM (may contain noise).
+
+Strong class imbalance → requires special loss (Dice + Focal).
+
+## 📝 8. Future Improvements
+
+Use UNet++, DeepLabV3+, or Swin-UNet
+
+Add more CT preprocessing (CLAHE, windowing)
+
+Post-processing with morphological operations
+
+Integrate detection + segmentation pipeline (YOLO → ResUNet++)
+
+## 🙌 9. Author
 Bhavika Bavchandbhai Radadiya
+
 MSc Data Analytics (2025)
 
-## 📄 License
+## 10. License
 
 This project is licensed under the MIT License – see the LICENSE
  file for details.
